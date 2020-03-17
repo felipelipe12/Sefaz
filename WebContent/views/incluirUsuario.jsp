@@ -12,6 +12,7 @@
 <body>
     <div class="center">
         <form action="UsuarioController" method="post">
+        	<input type="hidden" name="opcao" value="guardar">
             <div class="alignVertical space title">
                 <p>Preencha os campos abaixo</p>
             </div>
@@ -19,7 +20,7 @@
                 <input type="text" name="nome" placeholder="Nome">
             </div>
             <div class="alignVertical">
-                <input type="text" name="email" placeholder="Email">
+                <input type="email" name="email" placeholder="Email">
             </div>
             <div class="alignVertical">
                 <input type="password" name="senha" placeholder="Senha">

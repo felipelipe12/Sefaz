@@ -41,31 +41,12 @@ public class UsuarioController extends HttpServlet {
 			usuario.setEmail(request.getParameter("email"));
 			usuario.setSenha(request.getParameter("senha"));
 
-/*			try {
+			try {
 				int id_usuario = (int) usuariodao.adicionarUsuario(usuario);
 
-					Telefone telefone = new Telefone();
-
-					telefone.setDdd(Integer.parseInt(request.getParameter("ddd")));
-					telefone.setNumero(Integer.parseInt(request.getParameter("telefone")));
-					telefone.setId_usuario(id_usuario);
-	
-					telefonedao.cadastrarTelefone(telefone);
-				
-				System.out.println("Cadastro realizado com sucesso!");
-				HttpSession session=request.getSession();  
-				session.setAttribute("msgAviso", "Cadastro realizado com sucesso!");
-				session.setAttribute("msgAvisoCor", "green");
-				if(session.getAttribute("usuario") == null || session.getAttribute("usuario") == ""){
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");					
-					requestDispatcher.forward(request, response);
-				} else {
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/principal.jsp");					
-					requestDispatcher.forward(request, response);					
-				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}*/
+			}
 		}
 		
 		response.getWriter().append(opcao).append(request.getContextPath());

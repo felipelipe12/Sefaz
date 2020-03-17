@@ -16,7 +16,7 @@ public class ConnectionDB {
 				dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 				dataSource.setUsername("root");
 				dataSource.setPassword("");
-				dataSource.setUrl("jdbc:mysql://localhost:3307/sefaz");
+				dataSource.setUrl("jdbc:mysql://localhost:3307/sefaz?useTimezone=true&serverTimezone=UTC&useSSL=false&rewriteBatchedStatements=true&relaxAutoCommit=true");
 				dataSource.setInitialSize(50);
 				dataSource.setMaxIdle(100);
 				dataSource.setMaxTotal(1000);
