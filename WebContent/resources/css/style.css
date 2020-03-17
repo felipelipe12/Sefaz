@@ -1,0 +1,135 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #FAAC58;
+	font-family: Ubuntu;
+	user-select: none;
+}
+
+a {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th {
+	background-color: #D03E35;
+	border: 1px solid #D03E35;
+	padding: 10px 25px;
+}
+
+td {
+	background-color: white;
+	border: 1px solid #D03E35;
+	padding: 10px 25px;
+}
+
+/*------------------ Pattern Objects ------------------*/
+.space {
+	padding: 30px;
+}
+
+.title {
+	font-size: 30px;
+}
+
+.center {
+    display: flex;
+    float: center;
+    justify-content: center;
+    padding-top: 15vh;
+    text-align: center;
+}
+
+.alignVertical {
+	clear: both;
+	margin: 15px;
+}
+
+input[type=text], input[type=password] {
+	background-color: #F6E3CE;
+	border: none;
+	border-radius: 25px;
+	color: #D03E35;
+	font-family: Ubuntu;
+	font-size: 20px;
+	margin: 0 3px;
+	padding: 10px 25px;
+	outline: none;
+}
+
+::placeholder {
+	color: #F78181;
+}
+
+input[type="submit"] {
+	background-color: #D03E35;
+	border: none;
+	border-radius: 25px;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-family: Ubuntu;
+	font-size: 20px;
+	padding: 10px 100px;
+	outline: none;
+}
+
+input:focus[type=text], input:focus[type=password] {
+    background-color: #FFFFFF;
+}
+
+input[type="submit"]:active {
+	background-color: #F78181;
+}
+
+/*================== Login ==================*/
+.logo {
+	height: 100px;
+}
+
+.linkLogin {
+	color: #D03E35;
+	font-size: 15px;
+}
+
+.linkLogin:hover {
+	color: #FFFFFF;
+}
+
+.ulhome {
+	background-color: #F7BE81;
+	font-size: 18px;
+	list-style-type: none;
+	overflow: hidden;
+}
+
+.lihome {
+	float: left;
+}
+
+.lihome a {
+	color: #FFFFFF;
+	display: block;
+	padding: 25px 35px;
+	text-align: center;
+}
+
+.lilogo {
+	float: left;
+	padding: 10px 150px 5px 50px;
+}
+
+.logobar {
+	height: 50px;
+}
+
+.active {
+	background-color: #D03E35;
+}
