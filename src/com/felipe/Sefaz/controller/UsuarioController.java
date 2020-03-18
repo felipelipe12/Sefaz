@@ -50,7 +50,25 @@ public class UsuarioController extends HttpServlet {
 
 				e.printStackTrace();
 			}
-			System.out.println("Pressionou a opção de listar");
+		} else if (opcao.equals("deletar")) {
+			UsuarioDAO usuariodao = new UsuarioDAO();
+			TelefoneDAO telefonedao = new TelefoneDAO();
+
+			int id_usuario = Integer.parseInt(request.getParameter("id_usuario"));
+			try {
+				usuariodao.deletarUsuario(id_usuario);
+				System.out.println("Exclusão do usuário " + request.getParameter("id_usuario") + " realizado com sucesso!");
+				telefonedao.deletarTelefone(id_usuario);
+				System.out.println("Exclusão de todos os números do usuário " + request.getParameter("id_usuario") + " realizado com sucesso!");
+
+				HttpSession session=request.getSession();  
+				session.setAttribute("msgAviso", "Exclusão realizada com sucesso!");
+				session.setAttribute("msgAvisoCor", "green");
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/listarUsuario.jsp");
+				requestDispatcher.forward(request, response);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -82,12 +100,11 @@ public class UsuarioController extends HttpServlet {
 				if(session.getAttribute("usuario") == null || session.getAttribute("usuario") == ""){
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");					
 					requestDispatcher.forward(request, response);
-				}
-				else {
+				} else {
 					RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/principal.jsp");					
 					requestDispatcher.forward(request, response);					
 				}
-			}catch (SQLException e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			
@@ -95,7 +112,6 @@ public class UsuarioController extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			Usuario usuario = new Usuario();
 			UsuarioTelefoneDAO usuarioTelefoneDAO = new UsuarioTelefoneDAO();
-			
 			
 			usuario.setId_usuario(Integer.parseInt(request.getParameter("id_usuario")));
 			usuario.setNome(request.getParameter("nome"));

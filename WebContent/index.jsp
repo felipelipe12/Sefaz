@@ -9,7 +9,7 @@
 	<body>
 		<div class="center">
 			<form action="UsuarioController" method="post">
-				<input type="hidden" name="opcao" value=Login>
+				<input type="hidden" name="opcao" value="login">
 				
 				<div class="alignVertical">
 					<img class="logo space" src="resources/img/logo.png">
