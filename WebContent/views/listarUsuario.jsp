@@ -53,7 +53,7 @@
 							    out.println("<td> " + usuario.getEmail() + "</td>");
 	                	%>
 	                    <td>
-	                        <a style="color: #01DF01;" href="">Atualizar</a>
+	                        <a style="color: #01DF01;" href="UsuarioController?opcao=editar&id_usuario">Atualizar</a>
 	                    </td>
 	                    <td>
 	                        <a style="color: #FF0000;" href="UsuarioController?opcao=deletar&id_usuario=<%= usuario.getId_usuario() %>">Deletar</a>

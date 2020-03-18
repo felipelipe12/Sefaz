@@ -53,7 +53,7 @@ td {
 	margin: 15px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=email], input[type=password] {
 	background-color: #F6E3CE;
 	border: none;
 	border-radius: 25px;
