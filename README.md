@@ -5,7 +5,7 @@ Projeto Java Web (Maven, JSP, SQL, JDBC)
 
 Funcionalidades Implementadas:
 
-- Cadastro;
+- Cadastrar;
 - Listar;
 - Deletar;
 
