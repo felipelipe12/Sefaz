@@ -10,6 +10,7 @@
 		<div class="center">
 			<form action="UsuarioController" method="post">
 				<input type="hidden" name="opcao" value=Login>
+				
 				<div class="alignVertical">
 					<img class="logo space" src="resources/img/logo.png">
 				</div>
@@ -25,6 +26,9 @@
 				<div class="alignVertical space">
 	                <label>Não possui cadastro?
 	                    <a class="linkLogin" href="IncluirUsuarioController">Clique aqui!</a>
+	                </label>
+	                <label>
+	                    <a class="linkLogin" href="UsuarioController?opcao=listar">Listar Usuários</a>
 	                </label>
             	</div>
 			</form>

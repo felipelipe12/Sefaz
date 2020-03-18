@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.felipe.Sefaz.util.ConnectionDB;
 
@@ -110,12 +112,107 @@ public class UsuarioDAO {
 			connection.rollback();
 			e.printStackTrace();
 		} finally {
-			System.out.println("fechou");
 			connection.close();
 		}
 		return status;
 	}
 	
 	//Método para listar os usuários.
+	public List<Usuario> listarUsuarios() throws SQLException {
+		ResultSet resultSet = null;
+		List<Usuario> arrayUsuarios = new ArrayList<>();
+		
+		String sql = null;
+		status = false;
+		connection = conexao();
+
+		try {
+			sql = "SELECT * FROM usuario ORDER BY nome ASC";
+			statement = connection.prepareStatement(sql);
+			resultSet = statement.executeQuery(sql);
+			
+			while(resultSet.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId_usuario(resultSet.getInt(1));
+				usuario.setNome(resultSet.getString(2));
+				usuario.setEmail(resultSet.getString(3));
+				usuario.setSenha(resultSet.getString(4));
+				
+				arrayUsuarios.add(usuario);
+			}
+			statement.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			connection.close();
+		}
+		return arrayUsuarios;
+	}
 	
+	//Método para listar um usuário.
+	public Usuario listarUsuario(int id_usuario) throws SQLException {
+		ResultSet resultSet = null;
+		Usuario usuario = new Usuario();
+
+		String sql = null;
+		status = false;
+		connection = conexao();
+
+		try {
+			sql = "SELECT * FROM usuario WHERE id_usuario =?";
+			statement=connection.prepareStatement(sql);
+			statement.setInt(1, id_usuario);
+			
+			resultSet = statement.executeQuery();
+			
+			if(resultSet.next()) {				
+				usuario.setId_usuario(resultSet.getInt(1));
+				usuario.setNome(resultSet.getString(2));
+				usuario.setEmail(resultSet.getString(3));
+				usuario.setSenha(resultSet.getString(4));
+			}
+			statement.close();
+			resultSet.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			connection.close();
+		}
+		return usuario;
+	}
+	
+	//Método para fazer login com um usuário.
+	public Usuario logar(Usuario usu) throws SQLException {
+		ResultSet resultSet = null;
+
+		Usuario usuario = new Usuario();
+
+		String sql = null;
+		status = false;
+		connection = conexao();
+
+		try {
+			sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
+			statement=connection.prepareStatement(sql);
+			statement.setString(1, usu.getEmail());
+			statement.setString(2, usu.getSenha());
+			resultSet = statement.executeQuery();
+
+			if(resultSet.next()) {				
+				usuario.setId_usuario(resultSet.getInt(1));
+				usuario.setNome(resultSet.getString(2));
+				usuario.setEmail(resultSet.getString(3));
+				usuario.setSenha(resultSet.getString(4));
+			}
+			statement.close();
+			resultSet.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			connection.close();
+		}
+		return usuario;
+	}
 }

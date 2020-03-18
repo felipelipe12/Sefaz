@@ -26,7 +26,7 @@
                 <input type="password" name="senha" placeholder="Senha">
             </div>
             	<input type="text" name="ddd" placeholder="DDD" size="3" maxlength="3">
-            	<input type="text" name="telefone" placeholder="Telefone" size="7" maxlength="8">
+            	<input type="text" name="numero" placeholder="Número" size="7" maxlength="8">
             <div class="alignVertical space">
                 <input type="submit" value="Enviar">
             </div>
